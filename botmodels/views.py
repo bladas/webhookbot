@@ -1,12 +1,10 @@
 import requests
-from django.shortcuts import render
-
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Customer, Message
 from django.conf import settings
 TELEGRAM_URL = "https://api.telegram.org/bot"
-import json
+
 
 
 class BotView(APIView):
@@ -26,7 +24,7 @@ class BotView(APIView):
             customer=c,
             json=r
         )
-        reply_text = f'Привіт , як ся маєш )?\n' + text
+        reply_text = text[::-1]
         self.send_message(reply_text,chat_id)
         return Response('Ok', status=200)
 
