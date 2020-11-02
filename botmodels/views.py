@@ -26,7 +26,7 @@ class BotView(APIView):
             customer=c,
             json=r
         )
-        reply_text = r'Привіт , як ся маєш )?\n' + text
+        reply_text = f'Привіт , як ся маєш )?\n' + text
         self.send_message(reply_text,chat_id)
         return Response('Ok', status=200)
 
