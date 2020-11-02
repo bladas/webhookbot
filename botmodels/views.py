@@ -10,7 +10,7 @@ import json
 class BotView(APIView):
     def post(self, request):
         r = request.data
-        c = Customer.objects.filter(pk = 1)
+        c = Customer.objects.get(pk = 1)
         Message.objects.create(
             text = r,
             customer=c
