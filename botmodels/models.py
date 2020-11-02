@@ -17,6 +17,7 @@ class Message(models.Model):
     text = models.TextField(
         verbose_name='Текст'
     )
+    json = models.TextField(null=True)
     customer = models.ForeignKey(to='botmodels.Customer',
                                  on_delete=models.CASCADE,
                                  verbose_name='Користувач'

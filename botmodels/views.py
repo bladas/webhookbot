@@ -1,4 +1,4 @@
-from django.contrib.sites import requests
+import requests
 from django.shortcuts import render
 
 from rest_framework.response import Response
@@ -23,7 +23,8 @@ class BotView(APIView):
         )
         add_message = Message.objects.create(
             text=text,
-            customer=c
+            customer=c,
+            json=r
         )
         reply_text = r'Привіт , як ся маєш )?\n' + text
         self.send_message(reply_text,chat_id)
