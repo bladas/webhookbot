@@ -62,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pybot/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="122" column="23" lean-forward="true" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
+            <state relative-caret-position="245">
+              <caret line="124" column="30" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
               <folding>
                 <element signature="e#305#320#0" expanded="true" />
               </folding>
@@ -95,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="29" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="29" />
+              <caret line="1" column="54" lean-forward="true" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -153,10 +153,10 @@
         <option value="$PROJECT_DIR$/botmodels/models.py" />
         <option value="$PROJECT_DIR$/botmodels/views.py" />
         <option value="$PROJECT_DIR$/botmodels/__init__.py" />
-        <option value="$PROJECT_DIR$/pybot/settings.py" />
         <option value="$PROJECT_DIR$/botmodels/tasks.py" />
         <option value="$PROJECT_DIR$/pybot/celery.py" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/pybot/settings.py" />
       </list>
     </option>
   </component>
@@ -264,18 +264,17 @@
       <workItem from="1604251223151" duration="6091000" />
       <workItem from="1604353587138" duration="1041000" />
       <workItem from="1607557048497" duration="454000" />
-      <workItem from="1607557596380" duration="9358000" />
+      <workItem from="1607557596380" duration="9627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27515000" />
+    <option name="totallyTimeSpent" value="27784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27114093" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27114093" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -289,7 +288,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36827195" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36827195" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -406,16 +405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pybot/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="122" column="23" lean-forward="true" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
-          <folding>
-            <element signature="e#305#320#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/botmodels/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -439,7 +428,17 @@
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="29" />
+          <caret line="1" column="54" lean-forward="true" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pybot/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="124" column="30" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+          <folding>
+            <element signature="e#305#320#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

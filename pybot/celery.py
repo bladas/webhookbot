@@ -8,7 +8,7 @@ from django.conf import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pybot.settings')
 
 app = Celery('pybot')
-app.config_from_object('pybot.celeryconfig')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 
