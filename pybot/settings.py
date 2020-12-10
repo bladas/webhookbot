@@ -117,17 +117,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-CELERY_BROKER_BACKEND = "db+sqlite:///celery.sqlite"
-CELERY_CACHE_BACKEND = "db+sqlite:///celery.sqlite"
-CELERY_RESULT_BACKEND = "db+sqlite:///celery.sqlite"
-STATIC_URL = '/static/'
-CELERYBEAT_SCHEDULE = {
-    'do_some_task': {
-        'task': 'pybot.botmodels.tasks.periodic_send',
-        'schedule': datetime.timedelta(seconds=60),
-        'args': ''
-    },
-}
+BROKER_URL = "redis://:pc4ea24a743c483c781f292221009521102d16d5df91132651b0835bdc979de25@ec2-107-20-12-163.compute-1.amazonaws.com:26489"
+CELERY_RESULT_BACKEND = "redis://:pc4ea24a743c483c781f292221009521102d16d5df91132651b0835bdc979de25@ec2-107-20-12-163.compute-1.amazonaws.com:26489"
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TIMEZONE = 'Europe/Kiev'
+CELERY_ENABLE_UTC = True
+CELERY_DISABLE_RATE_LIMITS = True
 # bot settings
 TOKEN = '1255484992:AAEHQKYC0nLRQtoUpQzRpJ3hEdaULHnvsfg'
 django_heroku.settings(locals())

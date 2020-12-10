@@ -7,7 +7,7 @@ from django.conf import settings
 TELEGRAM_URL = "https://api.telegram.org/bot"
 
 
-@task()
+@shared_task
 def periodic_send():
     message = 'Перевірте рівень кисню в крові і надішліть результати у %'
     customers = Customer.objects.filter(check=False)
