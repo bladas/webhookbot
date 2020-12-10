@@ -1,10 +1,12 @@
 import requests
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from pybot.celery import app
 from .models import Customer, Message
 from django.conf import settings
-from celery import Celery, app
-from celery.schedules import crontab
+
+# from celery import shared_task
 
 TELEGRAM_URL = "https://api.telegram.org/bot"
 
@@ -40,6 +42,7 @@ class BotView(APIView):
     def get(self, request):
         return Response('Ok', status=200)
 
+    @app.task(default_retry_delay=60)
     def periodic_send(self):
         message = 'Перевірте рівень кисню в крові і надішліть результати у %'
         customers = Customer.objects.filter(check=False)
@@ -61,6 +64,6 @@ class BotView(APIView):
 bot = BotView
 
 
-@app.on_after_configure.connect
+@app
 def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(10 * 60, bot.periodic_send())
