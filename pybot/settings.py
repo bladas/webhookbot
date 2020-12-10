@@ -117,7 +117,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+CELERY_BROKER_BACKEND = "db+sqlite:///celery.sqlite"
+CELERY_CACHE_BACKEND = "db+sqlite:///celery.sqlite"
+CELERY_RESULT_BACKEND = "db+sqlite:///celery.sqlite"
 STATIC_URL = '/static/'
 CELERYBEAT_SCHEDULE = {
     'do_some_task': {
