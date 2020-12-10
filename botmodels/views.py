@@ -31,6 +31,8 @@ class BotView(APIView):
 
         except:
             self.send_message("Напишіть число", chat_id)
+            c.check = True
+            c.save()
 
         add_message = Message.objects.create(
             text=text,
