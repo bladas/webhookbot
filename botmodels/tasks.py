@@ -7,7 +7,7 @@ from pybot.celery import app
 TELEGRAM_URL = "https://api.telegram.org/bot"
 
 
-@app.task()
+@app.task(name="send")
 def periodic_send():
     message = 'Перевірте рівень кисню в крові і надішліть результати у %'
     send_message(message, "391459806")
