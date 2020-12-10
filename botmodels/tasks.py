@@ -1,4 +1,5 @@
 import requests
+from celery.app import shared_task
 from django.conf import settings
 
 from pybot.celery import app
@@ -6,7 +7,7 @@ from pybot.celery import app
 TELEGRAM_URL = "https://api.telegram.org/bot"
 
 
-@app.task(bind=True, default_retry_delay=40)
+@shared_task
 def periodic_send():
     message = 'Перевірте рівень кисню в крові і надішліть результати у %'
     send_message(message, "391459806")
