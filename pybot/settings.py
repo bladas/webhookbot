@@ -22,6 +22,12 @@ CELERY_BROKER_URL =  "redis://:pc4ea24a743c483c781f292221009521102d16d5df9113265
 #: from unwanted access (see userguide/security.html)
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
+CELERYBEAT_SCHEDULE = {
+    'send_mail': {
+        'task': 'botmodels.tasks.periodic_send',
+        'schedule': datetime.timedelta(minutes=1),
+    },
+}
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
