@@ -22,8 +22,9 @@ CELERY_BROKER_URL =  "redis://:pc4ea24a743c483c781f292221009521102d16d5df9113265
 #: from unwanted access (see userguide/security.html)
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERYBEAT_SCHEDULE = {
-    'send_mail': {
+    'periodic_send': {
         'task': 'botmodels.tasks.periodic_send',
         'schedule': datetime.timedelta(minutes=1),
     },
