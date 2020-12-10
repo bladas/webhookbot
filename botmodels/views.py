@@ -59,11 +59,3 @@ class BotView(APIView):
         response = requests.post(
             f"{TELEGRAM_URL}{settings.TOKEN}/sendMessage", data=data
         )
-
-
-bot = BotView
-
-
-@app
-def setup_periodic_tasks(sender, **kwargs):
-    sender.add_periodic_task(10 * 60, bot.periodic_send())
