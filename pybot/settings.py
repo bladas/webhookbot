@@ -15,6 +15,12 @@ from pathlib import Path
 import django_heroku
 # https://github.com/celery/django-celery/
 
+CELERY_BROKER_URL =  "redis://:pc4ea24a743c483c781f292221009521102d16d5df91132651b0835bdc979de25@ec2-107-20-12-163.compute-1.amazonaws.com:26489"
+
+#: Only add pickle to this list if your broker is secured
+#: from unwanted access (see userguide/security.html)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -117,14 +123,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-BROKER_URL = "redis://:pc4ea24a743c483c781f292221009521102d16d5df91132651b0835bdc979de25@ec2-107-20-12-163.compute-1.amazonaws.com:26489"
-CELERY_RESULT_BACKEND = "redis://:pc4ea24a743c483c781f292221009521102d16d5df91132651b0835bdc979de25@ec2-107-20-12-163.compute-1.amazonaws.com:26489"
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TIMEZONE = 'Europe/Kiev'
-CELERY_ENABLE_UTC = True
-CELERY_DISABLE_RATE_LIMITS = True
+
+
 # bot settings
 TOKEN = '1255484992:AAEHQKYC0nLRQtoUpQzRpJ3hEdaULHnvsfg'
 django_heroku.settings(locals())
