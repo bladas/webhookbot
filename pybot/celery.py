@@ -13,15 +13,6 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 
-app.conf.beat_schedule = {
-    # Executes every Monday morning at 7:30 a.m.
-    'add-every-minute': {
-        'task': 'botmodels.tasks.periodic_send',
-        'schedule': crontab(minute=1),
-        'args':"",
-    },
-}
-
 @app.task(bind=True)
 def debug_task(self):
     print('Request: {0!r}'.format(self.request))

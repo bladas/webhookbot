@@ -15,6 +15,7 @@ from pathlib import Path
 import django_heroku
 # https://github.com/celery/django-celery/
 
+CELERY_IMPORTS = ("apps.app_name.module.tasks",)
 CELERY_BROKER_URL =  "redis://:pc4ea24a743c483c781f292221009521102d16d5df91132651b0835bdc979de25@ec2-107-20-12-163.compute-1.amazonaws.com:26489"
 
 #: Only add pickle to this list if your broker is secured
