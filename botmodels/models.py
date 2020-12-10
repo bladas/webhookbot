@@ -4,7 +4,7 @@ from django.db import models
 class Customer(models.Model):
     customer_id = models.PositiveIntegerField(unique=True)
     name = models.CharField(max_length=50)
-    check = models.BooleanField()
+    check = models.BooleanField(null=True,blank=True)
 
     class Meta:
         verbose_name = 'Користувач'
