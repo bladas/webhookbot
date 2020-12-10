@@ -46,12 +46,6 @@ class BotView(APIView):
     def get(self, request):
         return Response('Ok', status=200)
 
-    @app.task(bind=True,default_retry_delay=60)
-    def periodic_send(self):
-        message = 'Перевірте рівень кисню в крові і надішліть результати у %'
-        customers = Customer.objects.filter(check=False)
-        for item in customers:
-            self.send_message(message, item.chat_id)
 
     @staticmethod
     def send_message(message, chat_id):

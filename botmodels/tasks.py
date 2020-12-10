@@ -1,7 +1,27 @@
+import requests
+
+from botmodels.models import Customer
+from celery import shared_task
+from django.conf import settings
+
+TELEGRAM_URL = "https://api.telegram.org/bot"
 
 
+@shared_task()
+def periodic_send(self):
+    __import__("time").sleep(30)
+    message = 'Перевірте рівень кисню в крові і надішліть результати у %'
+    customers = Customer.objects.filter(check=False)
+    for item in customers:
+        self.send_message(message, item.chat_id)
 
-@app.task
-def hello_world():
-    sleep(60)  # поставим тут задержку в 10 сек для демонстрации ассинхрности
-    print('Hello World')
+
+def send_message(message, chat_id):
+    data = {
+        "chat_id": chat_id,
+        "text": message,
+        "parse_mode": "Markdown",
+    }
+    response = requests.post(
+        f"{TELEGRAM_URL}{settings.TOKEN}/sendMessage", data=data
+    )
