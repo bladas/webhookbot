@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import datetime
 import os
 from pathlib import Path
 import django_heroku
+# https://github.com/celery/django-celery/
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +26,7 @@ SECRET_KEY = '_s74f@7^vl)%b0wr%4vy5(y41@-ruwk@#*vn8vcz3)u&@h@i!f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -116,7 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+CELERYBEAT_SCHEDULE = {
+    'do_some_task': {
+        'task': 'pybot.botmodels.tasks.periodic_send',
+        'schedule': datetime.timedelta(seconds=60),
+        'args': ''
+    },
+}
 # bot settings
 TOKEN = '1255484992:AAEHQKYC0nLRQtoUpQzRpJ3hEdaULHnvsfg'
 django_heroku.settings(locals())

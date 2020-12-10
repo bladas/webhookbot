@@ -1,15 +1,14 @@
 import requests
 
 from botmodels.models import Customer
-from celery import shared_task
+from celery import shared_task, task
 from django.conf import settings
 
 TELEGRAM_URL = "https://api.telegram.org/bot"
 
 
-@shared_task()
+@task()
 def periodic_send():
-    __import__("time").sleep(30)
     message = 'Перевірте рівень кисню в крові і надішліть результати у %'
     customers = Customer.objects.filter(check=False)
     for item in customers:
