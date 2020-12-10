@@ -8,12 +8,12 @@ TELEGRAM_URL = "https://api.telegram.org/bot"
 
 
 @shared_task()
-def periodic_send(self):
+def periodic_send():
     __import__("time").sleep(30)
     message = 'Перевірте рівень кисню в крові і надішліть результати у %'
     customers = Customer.objects.filter(check=False)
     for item in customers:
-        self.send_message(message, item.chat_id)
+        send_message(message, item.chat_id)
 
 
 def send_message(message, chat_id):
