@@ -18,6 +18,7 @@ def send_message(message, chat_id):
         "text": message,
         "parse_mode": "Markdown",
     }
-    response = requests.post(
+    requests.post(
         f"{TELEGRAM_URL}{settings.TOKEN}/sendMessage", data=data
     )
+    return requests
