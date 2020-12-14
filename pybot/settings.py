@@ -13,8 +13,10 @@ import datetime
 import os
 from pathlib import Path
 import django_heroku
-# https://github.com/celery/django-celery/
+import djcelery
 
+# https://github.com/celery/django-celery/
+djcelery.setup_loader()
 CELERY_IMPORTS = ("apps.app_name.module.tasks",)
 CELERY_BROKER_URL =  "redis://:pc4ea24a743c483c781f292221009521102d16d5df91132651b0835bdc979de25@ec2-107-20-12-163.compute-1.amazonaws.com:26489"
 
@@ -23,12 +25,7 @@ CELERY_BROKER_URL =  "redis://:pc4ea24a743c483c781f292221009521102d16d5df9113265
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
-CELERYBEAT_SCHEDULE = {
-    'periodic_send': {
-        'task': 'botmodels.tasks.periodic_send',
-        'schedule': datetime.timedelta(minutes=1),
-    },
-}
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -54,7 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'botmodels'
+    'djcelery',
+    'botmodels',
+
 ]
 
 MIDDLEWARE = [
